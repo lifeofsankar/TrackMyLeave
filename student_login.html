@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Student Login | DBMS Project</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script>
+        // Toggle password visibility
+        function togglePassword() {
+            const pwd = document.getElementById('password');
+            const icon = document.getElementById('showPwdIcon');
+            if (pwd.type === "password") {
+                pwd.type = "text";
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                pwd.type = "password";
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="login-container">
+    <div class="login-title">
+        <i class="fa-solid fa-user-graduate" style="color:#70a1ff"></i>
+        Student Login
+    </div>
+    <form class="login-form" action="login.php" method="POST">
+        <input type="hidden" name="role" value="student" />
+        <div class="input-group">
+            <label for="username">Username</label>
+            <i class="fa-solid fa-user icon"></i>
+            <input type="text" name="username" id="username" placeholder="Enter Student Username" required />
+        </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <i class="fa-solid fa-lock icon"></i>
+            <input type="password" name="password" id="password" placeholder="Enter Password" required />
+            <i class="fa-regular fa-eye show-password" id="showPwdIcon" onclick="togglePassword()"></i>
+        </div>
+        <button type="submit" class="login-button">Login</button>
+    </form>
+    <div class="login-links">
+        <a href="#">Forgot password?</a>
+        <span>|</span>
+        <a href="main_login.html">Back to Home</a>
+    </div>
+</div>
+</body>
+</html>
